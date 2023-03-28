@@ -124,6 +124,8 @@ window.addEventListener("click",(e)=>{
         }
         if (numberOfPlayerwins === 5){
             roundResultdiv.textContent = "You won!,You saved the world!"
+            let audio = document.querySelector(".audio");
+            audio.play();
         }
     }
 
