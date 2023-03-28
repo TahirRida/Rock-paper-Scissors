@@ -55,45 +55,80 @@ function playRound(playerSelection,computerSelection){
         return "please make a valid choice";
     }
 }
-//Let's create a game function knowing that a game is equal to 5 rounds.
-function game(){
-    let numberOfPlayerwins = 0; //initializing player's score
-    let numberOfComputerwins = 0; //initializing computer's score
+//Let's initialize the counters of playerWins and Computer Wins
+let numberOfPlayerwins = 0,
+    numberOfComputerwins = 0;
+//Let's create a game function
+/*function game(player){
     // 5 rounds of the game
-    for (let i = 0;i<5;i++){
-        // a Round
-        let player = prompt("Make your choice"); // getting the player0s choice
-        let roundResult = playRound(player,getComputerChoice()); // plating the round
-        let winRegExp = /You won/g; // a regular expression to test wether the player won or lost the round
-        // if the player won the round
-        if (winRegExp.test(roundResult)){
-            numberOfPlayerwins++; //incrementing player's score
-            console.log("Round Won!");
-        }
-        //if the player lost the round
-        else {
-            numberOfComputerwins++; //incrementing computer's score
-            console.log("Round lost!");
-        }
-        //printing the result of the round
-        console.log("Player :"+numberOfPlayerwins+"||"+numberOfComputerwins+" :Computer");
-    }
-    // Now we'll log the result of the game to the console
-    //1- if the player won
-    if (numberOfPlayerwins>numberOfComputerwins){
-        console.log("You won\n");
-    }
-    //2- if the computer won:
-    if (numberOfPlayerwins < numberOfComputerwins) {
-        console.log("You Lost!");
-    }
-    //3-if there were no winner (i.e computer's score = player's score):
-    if (numberOfPlayerwins == numberOfComputerwins) {
-        console.log("Equality");
-    } 
-    //printing the result of the wohole game:
+   while (numberOfPlayerwins != 5 && numberOfComputerwins != 5){
+            // a Round
+            console.log(player);
+            let choices = ["rock","paper","scissors"];
+            if(choices.includes(player)){
+                let roundResult = playRound(player,getComputerChoice()); // plating the round
+                let winRegExp = /You won/g; // a regular expression to test wether the player won.
+                let losRegExp = /You lost/g; // a regular expression to test wether the player lost.
+                // if the player won the round
+                if (winRegExp.test(roundResult)){
+                    numberOfPlayerwins++; //incrementing player's score
+                    console.log("Round Won!");
+                }
+                //if the player lost the round
+                if(losRegExp.test(roundResult)) {
+                    numberOfComputerwins++; //incrementing computer's score
+                    console.log("Round lost!");
+                }
+                //printing the result of the round
+                console.log("Player :"+numberOfPlayerwins+"||"+numberOfComputerwins+" :Computer");
+            }
 
+            }
+    //printing the result of the wohole game:
+    if (numberOfPlayerwins > numberOfComputerwins){
+        console.log("You Won!");
+    }
+    else{
+        console.log("You lost!");
+    }
     console.log("Player :"+numberOfPlayerwins+"||"+numberOfComputerwins+" :Computer");
 
 }
-game();
+*/
+var player ;
+window.addEventListener("click",(e)=>{
+    player = e.target.id;
+    if (numberOfComputerwins != 5 && numberOfPlayerwins != 5){
+        let roundResult = playRound(player,getComputerChoice()); // plating the round
+        let winRegExp = /You won/g; // a regular expression to test wether the player won.
+        let losRegExp = /You lost/g; // a regular expression to test wether the player lost.
+        // if the player won the round
+        if (winRegExp.test(roundResult)){
+            numberOfPlayerwins++; //incrementing player's score
+            
+        }
+        //if the player lost the round
+        if(losRegExp.test(roundResult)) {
+            numberOfComputerwins++; //incrementing computer's score
+            roundResult += " .You still have the chance";
+        }
+        let roundResultdiv = document.querySelector(".Round-Result") //
+        roundResultdiv.textContent = roundResult;
+        //printing the result of the round
+        let numberOfPlayerwinsdiv = document.querySelector(".humanScore");
+        numberOfPlayerwinsdiv.textContent = numberOfPlayerwins;
+        let numberOfComputerwinsdiv = document.querySelector(".computerScore");
+        numberOfComputerwinsdiv.textContent = numberOfComputerwins;
+        if ( numberOfComputerwins === 5){
+            roundResultdiv.textContent = "You Lost the game!"
+        }
+        if (numberOfPlayerwins === 5){
+            roundResultdiv.textContent = "You won!,You saved the world!"
+        }
+    }
+
+})
+function restart(){
+    numberOfComputerwins = 0;
+    numberOfPlayerwins = 0;
+}

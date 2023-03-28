@@ -8,7 +8,31 @@
     <script src="script.js"></script>
     <title>Rock Paper Scissors</title>
 </head>
-<body>
-    
+<body id="bd">
+    <div  class="head">
+        <img  class="headimg" src="rock-paper-Scissors.png">
+        <h1>Save the world from computers!</h1>   
+    </div>
+    <div class="ChooseTitle">
+        <h1>Make Your Choice!, The world rely on you!</h1>
+    </div>
+    <div class="Choices">
+        <img class="choice" id="paper" src ="paper.png">
+        <img class="choice" id="rock" src ="rock.png">
+        <img class="choice" id="scissors" src ="scissors.png">
+    </div>
+    <div class="Result">
+        <h1>You</h1>
+        <h1 class="humanScore">0</h1>
+        <h1>-</h1>
+        <h1 class="computerScore">0</h1>
+        <h1>Computer</h1>
+    </div>
+    <h1 class="Round-Result">
+
+    </h1>
+    <div class="restart">
+        <button onclick="restart()"><h2>Restart The game </h2></button>
+     </div>
 </body>
 </html>

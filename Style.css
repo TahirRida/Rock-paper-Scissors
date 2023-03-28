@@ -1,0 +1,80 @@
+@font-face {
+    font-family : "horror";
+    src : url(DeliciousHandrawn-Regular.ttf);
+}
+body{
+    background-color : black;
+    margin : 0px;
+    color : white;
+}
+.head{
+    padding: 10px;
+    background-color:yellow;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:"horror";
+    height: 60px;
+    gap : 40px;
+    flex-wrap:wrap;
+    color : black;
+
+}
+.headimg{
+    width : 200px;
+    height:60px;
+}
+.ChooseTitle{
+    padding-top: 30px;
+    color : white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:"horror";
+    height: 60px;
+    gap : 40px;
+
+}
+.Choices{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    padding-top:20px;
+}
+
+.choice{
+    width:150px;
+    height:150px;
+}
+.choice:hover{
+    transform :scale(1.2);
+}  
+.Result{
+    display :flex;
+    justify-content:space-between;
+    gap : 40px;
+    padding : 40px;
+    color : white;
+}
+.Round-Result{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    color:yellow;
+
+}
+.restart{
+    display : flex;
+    justify-content: center;
+    align-items : center;
+}
+button{
+    font-family : "horror";
+    border-radius:10px;
+    width:200px;
+    height : 40px;
+}
+button :hover{
+    transfrom:scale(1.1);
+}   
