@@ -76,5 +76,5 @@ button{
     height : 40px;
 }
 button :hover{
-    transfrom:scale(1.1);
+    transform:scale(1.1);
 }   
