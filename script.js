@@ -58,46 +58,9 @@ function playRound(playerSelection,computerSelection){
 //Let's initialize the counters of playerWins and Computer Wins
 let numberOfPlayerwins = 0,
     numberOfComputerwins = 0;
-//Let's create a game function
-/*function game(player){
-    // 5 rounds of the game
-   while (numberOfPlayerwins != 5 && numberOfComputerwins != 5){
-            // a Round
-            console.log(player);
-            let choices = ["rock","paper","scissors"];
-            if(choices.includes(player)){
-                let roundResult = playRound(player,getComputerChoice()); // plating the round
-                let winRegExp = /You won/g; // a regular expression to test wether the player won.
-                let losRegExp = /You lost/g; // a regular expression to test wether the player lost.
-                // if the player won the round
-                if (winRegExp.test(roundResult)){
-                    numberOfPlayerwins++; //incrementing player's score
-                    console.log("Round Won!");
-                }
-                //if the player lost the round
-                if(losRegExp.test(roundResult)) {
-                    numberOfComputerwins++; //incrementing computer's score
-                    console.log("Round lost!");
-                }
-                //printing the result of the round
-                console.log("Player :"+numberOfPlayerwins+"||"+numberOfComputerwins+" :Computer");
-            }
-
-            }
-    //printing the result of the wohole game:
-    if (numberOfPlayerwins > numberOfComputerwins){
-        console.log("You Won!");
-    }
-    else{
-        console.log("You lost!");
-    }
-    console.log("Player :"+numberOfPlayerwins+"||"+numberOfComputerwins+" :Computer");
-
-}
-*/
 var player ;
 window.addEventListener("click",(e)=>{
-    player = e.target.id;
+    player = e.target.id;// the choice of the player.
     if (numberOfComputerwins != 5 && numberOfPlayerwins != 5){
         let roundResult = playRound(player,getComputerChoice()); // plating the round
         let winRegExp = /You won/g; // a regular expression to test wether the player won.
@@ -120,12 +83,14 @@ window.addEventListener("click",(e)=>{
         let numberOfComputerwinsdiv = document.querySelector(".computerScore");
         numberOfComputerwinsdiv.textContent = numberOfComputerwins;
         if ( numberOfComputerwins === 5){
-            roundResultdiv.textContent = "You Lost the game!"
+            roundResultdiv.textContent = "You Lost the game!";
+            setTimeout(restart(),5);
         }
         if (numberOfPlayerwins === 5){
             roundResultdiv.textContent = "You won!,You saved the world!"
             let audio = document.querySelector(".audio");
             audio.play();
+            setTimeout(restart(),5);
         }
     }
 
